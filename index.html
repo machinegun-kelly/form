@@ -18,18 +18,11 @@
       <form action="appform/home.html" method="get"> <!-- Link to your application form here -->
         <img src="img/avatar.svg" alt="Avatar">
         <h2 class="title">Welcome</h2>
-        <input type="button" class="btn" value="Start Application" id="startBtn">
+        <input type="submit" class="btn" value="Start Application">
       </form>
     </div>
   </div>
 
-  <script type="text/javascript" src="js/main.js">
-    document.getElementById('startBtn').addEventListener('click', function () {
-    document.body.classList.add('fade-out');
-    setTimeout(function () {
-      window.location.href = "home.html";
-    }, 700); // Match the CSS transition time
-  });
-  </script>
+  <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
