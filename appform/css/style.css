@@ -1,0 +1,50 @@
+/* Optional custom styling for the form container and background */
+body {
+    background-color: #f7f7f7;
+    font-family: 'Poppins', sans-serif;
+    background-image: url(/img/ERAP.jpg); /* adjust path as needed */
+  	background-size: cover;
+  	background-repeat: no-repeat;
+  	background-position: center center;
+  	background-attachment: fixed;
+  }
+  
+  .container {
+    margin-top: 50px;
+  }
+  
+  .card {
+    border-radius: 15px;
+    border: none;
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  h3 {
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  input[type="file"] {
+    padding: 10px;
+  }
+  
+  input[type="radio"] {
+    margin: 0 10px;
+  }
+  
+  .btn {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 25px;
+  }
+  
